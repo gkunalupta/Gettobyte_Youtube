@@ -1,0 +1,159 @@
+
+kunal serial2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000128  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000000d4  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000128  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000158  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000038  00000000  00000000  00000194  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000717  00000000  00000000  000001cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000067a  00000000  00000000  000008e3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000001fe  00000000  00000000  00000f5d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000054  00000000  00000000  0000115c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000003d5  00000000  00000000  000011b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000013  00000000  00000000  00001585  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000028  00000000  00000000  00001598  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 5c 00 	call	0xb8	; 0xb8 <main>
+  78:	0c 94 68 00 	jmp	0xd0	; 0xd0 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <_Z9UART_Initv>:
+	}
+}
+
+void UART_Init()
+{
+	UBRR0L = 103;
+  80:	87 e6       	ldi	r24, 0x67	; 103
+  82:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+	UCSR0B = (1<<TXEN0)|(1<<RXEN0);
+  86:	88 e1       	ldi	r24, 0x18	; 24
+  88:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+	UCSR0C = (1<<UCSZ00)|(1<<UCSZ01);
+  8c:	86 e0       	ldi	r24, 0x06	; 6
+  8e:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+  92:	08 95       	ret
+
+00000094 <_Z11UART_TxCharc>:
+}
+
+void UART_TxChar(char data)
+{//PORTB=0xff;
+	while(!(UCSR0A & (1<<UDRE0)));
+  94:	e0 ec       	ldi	r30, 0xC0	; 192
+  96:	f0 e0       	ldi	r31, 0x00	; 0
+  98:	90 81       	ld	r25, Z
+  9a:	95 ff       	sbrs	r25, 5
+  9c:	fd cf       	rjmp	.-6      	; 0x98 <_Z11UART_TxCharc+0x4>
+	{
+		UDR0 = data;
+  9e:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+  a2:	08 95       	ret
+
+000000a4 <_Z11UART_RxCharv>:
+	}
+}
+
+char UART_RxChar()
+{//PORTB=0xff;
+	while(!(UCSR0A & (1<<RXC0)));
+  a4:	e0 ec       	ldi	r30, 0xC0	; 192
+  a6:	f0 e0       	ldi	r31, 0x00	; 0
+  a8:	80 81       	ld	r24, Z
+  aa:	88 23       	and	r24, r24
+  ac:	ec f7       	brge	.-6      	; 0xa8 <_Z11UART_RxCharv+0x4>
+	{
+		PORTB=0xff;
+  ae:	8f ef       	ldi	r24, 0xFF	; 255
+  b0:	85 b9       	out	0x05, r24	; 5
+		return UDR0;
+  b2:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+
+}PORTB=0x00;
+
+  b6:	08 95       	ret
+
+000000b8 <main>:
+void UART_Init();
+char UART_RxChar();
+void UART_TxChar(const char data);
+//DDRB=0xff;
+int main(void)
+{DDRB=0xff;
+  b8:	8f ef       	ldi	r24, 0xFF	; 255
+  ba:	84 b9       	out	0x04, r24	; 4
+	char myValue;
+	
+	UART_Init();
+  bc:	0e 94 40 00 	call	0x80	; 0x80 <_Z9UART_Initv>
+	
+	while (1)
+	{   //PORTB=0xff;
+		UART_TxChar('k');
+  c0:	8b e6       	ldi	r24, 0x6B	; 107
+  c2:	0e 94 4a 00 	call	0x94	; 0x94 <_Z11UART_TxCharc>
+		myValue = UART_RxChar();
+  c6:	0e 94 52 00 	call	0xa4	; 0xa4 <_Z11UART_RxCharv>
+		UART_TxChar(myValue);
+  ca:	0e 94 4a 00 	call	0x94	; 0x94 <_Z11UART_TxCharc>
+  ce:	f8 cf       	rjmp	.-16     	; 0xc0 <main+0x8>
+
+000000d0 <_exit>:
+  d0:	f8 94       	cli
+
+000000d2 <__stop_program>:
+  d2:	ff cf       	rjmp	.-2      	; 0xd2 <__stop_program>
