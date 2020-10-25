@@ -11,13 +11,17 @@
 int main(void)
 {
 	UART_Init0();
-	char abc[20];
-	
+	UART_Init1();
+	char abc[200];
+	printString1("AT+GMR\r\n");
+			rxstring1(abc);
+			printString0(abc);
     /* Replace with your application code */
     while (1) 
     {
-		rxstring0(abc);
-		printString0(abc);
+		
+		//rxstring1(abc);
+		//printString0(abc);
     }
 }
 
