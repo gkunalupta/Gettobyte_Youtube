@@ -7,7 +7,7 @@
 
 #include <avr/io.h>
 #include "uarts.h"
- 
+ #include "avr/delay.h"
  // USART Receiver buffer
  #define RX_BUFFER_SIZE_UART0 255
  uint8_t Rx_Buffer_UART0[RX_BUFFER_SIZE_UART0]; // character array (buffer)
@@ -52,20 +52,18 @@ char getchar_UART0()
 }
 void getstring_UART0()
 {
-	//printString0(" Number of characters received : ");
-	//decimel0(RX_No_of_byte_UART0);
-	//printString0("\n");
+	
 	uint8_t x=0;
 	memset(RX_DATA_UART0, '\0',RX_BUFFER_SIZE_UART0);
-	decimel0(RX_No_of_byte_UART0);
-	while (!RX_No_of_byte_UART0);
+	
+	while (RX_No_of_byte_UART0)
 	{
 		RX_DATA_UART0[x]= getchar_UART0();
 		x++;
-		printString0(RX_DATA_UART0);
+		
 	}
-	//printString0(RX_DATA_UART0);
-	//_delay_ms(1000);
+	printString0(RX_DATA_UART0);
+	
 	
 }
 int main(void)
@@ -77,9 +75,10 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
-	    
-		    getstring_UART0();
-	    
+		//printString0("kunal\n");
+	    //printString0("gettobyte\n");
+	  getstring_UART0();
+	    _delay_ms(1000);
 	
     }
 }

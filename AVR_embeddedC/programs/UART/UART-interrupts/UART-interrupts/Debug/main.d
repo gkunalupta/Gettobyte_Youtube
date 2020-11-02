@@ -16,7 +16,11 @@ main.d main.o: .././main.cpp \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\uarts.cpp
+ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\uarts.cpp \
+ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\delay.h \
+ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
+ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
+ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -53,3 +57,11 @@ c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\in
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
 c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\uarts.cpp:
+
+c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\delay.h:
+
+c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
+
+c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+
+c:\avr\ atmel\ studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
